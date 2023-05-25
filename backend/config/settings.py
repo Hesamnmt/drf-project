@@ -40,6 +40,7 @@ INSTALLED_APPS = [
     'rest_framework',
     'blog.apps.BlogConfig',
     'api.apps.ApiConfig',
+    'rest_framework.authtoken'
 
     
 ]
@@ -130,6 +131,9 @@ DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
 REST_FRAMEWORK = {
     'DEFAULT_PERMISSION_CLASSES': [
-        'api.permissions.IsStaffOrReadOnly ',
-    ]
-}
+        'api.permissions.IsStaffOrReadOnly',
+    ],
+    'DEFAULT_AUTHENTICATION_CLASSES': [
+        'rest_framework_simplejwt.authentication.JWTAuthentication',
+    ],
+} 
